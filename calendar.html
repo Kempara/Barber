@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Booking Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        .booked { background-color: #f08080; color: white; pointer-events: none; }
+        .available { background-color: #90ee90; }
+        table { width: 100%; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Weekly Booking Calendar</h1>
+    <h2 class="text-center mb-4">Please enter 2 names in bulgarian</h2>
+    <form method="POST" action="/book" id="booking-form">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    {% for day in week_days %}
+                        <th>{{ day.strftime('%A, %d %B') }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for hour in hours %}
+                    <tr>
+                        <td>{{ hour }}</td>
+                        {% for day in week_days %}
+                            {% set slot = booked_slots.get((day, hour)) %}
+                            <td>
+                                {% if slot %}
+
+                                    <button class="btn booked" disabled>Booked</button>
+                                {% else %}
+                                    <button type="button" class="btn available"
+                                            onclick="bookSlot('{{ day }}', '{{ hour }}')">Book</button>
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="hidden" name="date" id="date">
+        <input type="hidden" name="time" id="time">
+        <div id="user-info" style="display: none;">
+            <label for="name" class="form-label">Enter Your Name:</label>
+            <input type="text" class="form-control" name="name" id="name" required>
+            <button type="submit" class="btn btn-success mt-3">Confirm Booking</button>
+        </div>
+    </form>
+</div>
+<script>
+    function bookSlot(date, time) {
+        document.getElementById('date').value = date;
+        document.getElementById('time').value = time;
+        document.getElementById('user-info').style.display = 'block';
+
+         window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth' // Adds smooth scrolling
+         });
+    }
+</script>
+</body>
+</html>

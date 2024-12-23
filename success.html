@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensures video stays behind the content */
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay for contrast */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Behind content, above video */
+        }
+        .container {
+            position: relative;
+            z-index: 1; /* Above overlay */
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #56ab2f;
+            border: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #6fcf4e;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video class="video-bg" autoplay muted loop>
+        <source src="static/intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay for better text contrast -->
+    <div class="overlay"></div>
+
+    <!-- Content -->
+    <div class="container">
+        <h1>Booking Confirmed!</h1>
+        <p>Your appointment has been successfully scheduled. Thank you for choosing us!</p>
+        <a href="/calendar" class="btn btn-primary">Back to Calendar</a>
+    </div>
+</body>
+</html>

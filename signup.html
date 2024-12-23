@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #89cff0, #4682b4); /* Light blue gradient */
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: #fff;
+        }
+        .signup-container {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+        label {
+            font-weight: 600;
+        }
+        .form-control {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .btn-primary {
+            background-color: #4682b4; /* Steel blue */
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #5a9bd4; /* Lighter shade on hover */
+        }
+        .login-redirect {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 14px;
+        }
+        .login-redirect a {
+            color: #4682b4;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .login-redirect a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 12px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1>Create an Account</h1>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label" style="color: black;">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label" style="color: black;">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label" style="color: black;">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <div class="login-redirect" style="color: black;">
+            Already have an account? <a href="/login">Log In</a>
+        </div>
+        <div class="footer" style="color: black;">
+            &copy; 2024 Barber Shop Inc. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
